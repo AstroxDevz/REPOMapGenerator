@@ -1,0 +1,15 @@
+HSlider
+Button
+LineEdit      - Matches the "text" keyword.
+CheckButton
+HBoxContainer
+Label
+TextEdit
+VBoxContainer
+Control
+AspectRatioContainer
+Container
+Sprite2D
+WorldEnvironment
+CanvasLayer
+TileMapLayer
