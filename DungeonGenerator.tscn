@@ -1,0 +1,138 @@
+[gd_scene load_steps=6 format=3 uid="uid://brhm6phkhok4r"]
+
+[ext_resource type="Script" uid="uid://doplrcc5kf28o" path="res://dungeon_generator.gd" id="1_hu3hn"]
+[ext_resource type="TileSet" uid="uid://bfqs6014mknl5" path="res://TileSetDungeon.tres" id="2_dfu8u"]
+[ext_resource type="FontFile" uid="uid://ljuh3t4vayxy" path="res://Teko-VariableFont_wght.ttf" id="3_jyhfs"]
+[ext_resource type="Texture2D" uid="uid://bgftnbfjp00iw" path="res://WhiteTile.png" id="3_ks5ye"]
+
+[sub_resource type="Environment" id="Environment_hu3hn"]
+background_mode = 3
+glow_enabled = true
+glow_blend_mode = 0
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_hu3hn")
+
+[node name="Fondo" type="TileMapLayer" parent="."]
+modulate = Color(0, 0.26666668, 0, 0.7529412)
+tile_set = ExtResource("2_dfu8u")
+
+[node name="Camino" type="TileMapLayer" parent="."]
+modulate = Color(0, 1.3167266, 0, 1)
+tile_set = ExtResource("2_dfu8u")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(293, 319)
+scale = Vector2(2, 2)
+zoom = Vector2(0.8, 0.8)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+modulate = Color(1, 1, 0, 1)
+texture_filter = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -466.0
+offset_top = -87.0
+offset_right = -39.0
+offset_bottom = 23.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("3_jyhfs")
+theme_override_font_sizes/font_size = 61
+text = "NÚMERO DE SALAS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -487.99994
+offset_top = -206.0
+offset_right = -318.99994
+offset_bottom = -4.7878723
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(1.835, 1.835)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_jyhfs")
+text = "Niveles Completados: "
+
+[node name="TXT_NivelesCompletados" type="LineEdit" parent="CanvasLayer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_jyhfs")
+text = "0"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_jyhfs")
+text = "Max Pasillos: "
+
+[node name="TXT_MaxPasillos" type="LineEdit" parent="CanvasLayer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_jyhfs")
+text = "5"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_jyhfs")
+text = "Velocidad Animación: "
+
+[node name="HSlider_VelAnim" type="HSlider" parent="CanvasLayer/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(71.23, 2.08)
+layout_mode = 2
+min_value = 0.1
+max_value = 2.0
+step = 0.1
+value = 1.0
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_jyhfs")
+text = "Usar Semilla"
+
+[node name="CheckButton" type="CheckButton" parent="CanvasLayer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_jyhfs")
+text = "Semilla: "
+
+[node name="TXT_Seed" type="LineEdit" parent="CanvasLayer/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_jyhfs")
+
+[node name="PlayButton" type="Button" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+text = "Generar"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_hu3hn")
+
+[node name="Cursor" type="Sprite2D" parent="."]
+modulate = Color(0.14976579, 0.72656786, 0.7737103, 1)
+texture = ExtResource("3_ks5ye")

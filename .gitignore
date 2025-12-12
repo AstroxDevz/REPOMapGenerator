@@ -1,0 +1,9 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+*.translation
+export_presets.cfg
+
+# Ignorar carpetas de exportación (opcional, pero recomendado en la rama main)
+builds/
+dist/
